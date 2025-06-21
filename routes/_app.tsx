@@ -10,6 +10,7 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body f-client-nav>
+        <h1>Fresh Partial Route Example</h1>
         <Partial name="main">
           <Component />
         </Partial>

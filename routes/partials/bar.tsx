@@ -1,7 +1,15 @@
-export default function Bar() {
+import { defineRoute, RouteConfig } from "$fresh/server.ts";
+import { Partial } from "$fresh/runtime.ts";
+
+export const config: RouteConfig = {
+  skipAppWrapper: true,
+  skipInheritedLayouts: true,
+};
+
+export default defineRoute(async (req, ctx) => {
   return (
-    <div>
-      <h1>Bar</h1>
+    <Partial name="main">
+      <h2>Bar</h2>
       <p>This is the Bar partial route.</p>
       <ul>
         <li>
@@ -11,6 +19,6 @@ export default function Bar() {
           <a href="/">home</a>
         </li>
       </ul>
-    </div>
+    </Partial>
   );
-}
+});

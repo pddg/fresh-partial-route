@@ -1,7 +1,15 @@
-export default function Foo() {
+import { defineRoute, RouteConfig } from "$fresh/server.ts";
+import { Partial } from "$fresh/runtime.ts";
+
+export const config: RouteConfig = {
+  skipAppWrapper: true,
+  skipInheritedLayouts: true,
+};
+
+export default defineRoute(async (req, ctx) => {
   return (
-    <div>
-      <h1>Foo</h1>
+    <Partial name="main">
+      <h2>Foo</h2>
       <p>This is the Foo partial route.</p>
       <ul>
         <li>
@@ -11,6 +19,6 @@ export default function Foo() {
           <a href="/">home</a>
         </li>
       </ul>
-    </div>
+    </Partial>
   );
-}
+});
